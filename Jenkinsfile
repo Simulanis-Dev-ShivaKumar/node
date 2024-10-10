@@ -10,22 +10,32 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                // Build your Docker image here
+                // Example build command
+                sh 'echo "Building Docker Image..."'
+                // Add your actual Docker build command here
+                // sh 'docker build -t your-image-name .'
             }
         }
         stage('Push Docker Image') {
             steps {
-                // Push your Docker image here
+                // Example push command
+                sh 'echo "Pushing Docker Image..."'
+                // Add your actual Docker push command here
+                // sh 'docker push your-image-name'
             }
         }
         stage('Create Kubernetes Manifests') {
             steps {
-                // Create Kubernetes manifests here
+                // Example command for creating Kubernetes manifests
+                sh 'echo "Creating Kubernetes Manifests..."'
+                // Add your actual command for creating manifests here
             }
         }
         stage('Deploy with ArgoCD') {
             steps {
-                // Deploy your application using ArgoCD here
+                // Example command for deploying with ArgoCD
+                sh 'echo "Deploying with ArgoCD..."'
+                // Add your actual command for deployment here
             }
         }
     }
