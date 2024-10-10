@@ -1,9 +1,9 @@
 pipeline {
     agent any
     environment {
-        DOCKER_IMAGE = "your-dockerhub-repo/your-app:latest"  // Replace with your Docker Hub repository
-        ARGOCD_APP = "your-argo-app"                            // Replace with your ArgoCD application name
-        K3S_NAMESPACE = "default"                               // Set your desired Kubernetes namespace
+        DOCKER_IMAGE = "shiva7475/your-app:latest"  // Updated Docker Hub repository
+        ARGOCD_APP = "your-argo-app"                  // Replace with your ArgoCD application name
+        K3S_NAMESPACE = "default"                     // Set your desired Kubernetes namespace
     }
     stages {
         stage('Checkout') {
@@ -61,9 +61,9 @@ pipeline {
                 script {
                     sh '''
                     argocd app create ${ARGOCD_APP} \
-                      --repo https://github.com/Simulanis-Dev-ShivaKumar/node.git \  // Updated GitHub repository URL
-                      --path ./ \                                      // Adjust path if necessary
-                      --dest-server https://k3s-cluster \             // Replace with your K3s cluster server URL
+                      --repo https://github.com/Simulanis-Dev-ShivaKumar/node.git  // Updated GitHub repository URL
+                      --path ./  // Adjust path if necessary
+                      --dest-server https://k3s-cluster  // Replace with your K3s cluster server URL
                       --dest-namespace ${K3S_NAMESPACE}
                     argocd app sync ${ARGOCD_APP}
                     '''
